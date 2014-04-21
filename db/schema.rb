@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140421000952) do
+ActiveRecord::Schema.define(version: 20140421160519) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "people", force: true do |t|
     t.string   "first_name"
@@ -19,5 +22,14 @@ ActiveRecord::Schema.define(version: 20140421000952) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "phone_numbers", force: true do |t|
+    t.string   "number"
+    t.integer  "person_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "phone_numbers", ["person_id"], name: "index_phone_numbers_on_person_id", using: :btree
 
 end

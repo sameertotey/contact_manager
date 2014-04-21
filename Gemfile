@@ -43,7 +43,7 @@ group :development, :test do
   gem "guard"
   gem "guard-rspec"
   gem "rspec-rails"
-  gem "sqlite3"
+  # gem "sqlite3"
   gem "shoulda-matchers"
   gem "capybara"
   gem "launchy"
@@ -51,9 +51,9 @@ end
 
 gem 'unicorn'
 
-group :production do
+# group :production do
   gem 'pg'
-end
+# end
 
 gem "unicorn-rails"
 gem "rails_12factor", group: :production
