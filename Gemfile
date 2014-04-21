@@ -56,6 +56,7 @@ group :production do
 end
 
 gem "unicorn-rails"
-gem "rails_12factor"
+gem "rails_12factor", group :production
+ruby '2.1.1'
 
 
