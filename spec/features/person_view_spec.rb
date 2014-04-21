@@ -29,7 +29,7 @@ describe "the person view", type: :feature do
     expect(page).to have_content('555-8888')
   end
 
-  it 'has links t edit phone numbers' do
+  it 'has links to edit phone numbers' do
     person.phone_numbers.each do |phone|
       expect(page).to have_link('edit', href: edit_phone_number_path(phone))
     end
@@ -46,5 +46,11 @@ describe "the person view", type: :feature do
     expect(current_path).to eq(person_path(person))
     expect(page).to have_content('555-9191')
     expect(page).to_not have_content(old_number)
+  end
+
+  it 'has links to delete phone numbers' do
+    person.phone_numbers.each do |phone|
+      expect(page).to have_link('delete', href: phone_number_path(phone))
+    end
   end
 end
