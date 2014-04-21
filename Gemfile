@@ -56,5 +56,6 @@ group :production do
 end
 
 gem "unicorn-rails"
+gem "rails_12factor"
 
 
