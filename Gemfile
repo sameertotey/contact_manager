@@ -55,7 +55,7 @@ gem 'unicorn'
   gem 'pg'
 # end
 
-gem "unicorn-rails"
+# gem "unicorn-rails"
 gem "rails_12factor", group: :production
 ruby '2.1.1'
 
