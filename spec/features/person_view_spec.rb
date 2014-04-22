@@ -68,7 +68,7 @@ describe "the person view", type: :feature do
       end
     end
     it "has an add email address link" do
-      expect(page).to have_link('Add email address', href: new_email_address_path(person_id: person.id))
+      expect(page).to have_link('Add email address', href: new_email_address_path(contact_id: person.id, contact_type: 'Person'))
     end
     it 'adds a new email address' do
       # pending
@@ -85,7 +85,7 @@ describe "the person view", type: :feature do
     end
 
     it 'edits a email_addresses number' do
-      email_addresses = person.email_addresses.last
+      email_addresses = person.email_addresses.first
       old_email = email_addresses.address
       # old_number = first(:css. )
 

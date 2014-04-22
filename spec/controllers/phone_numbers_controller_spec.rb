@@ -181,8 +181,6 @@ describe PhoneNumbersController do
     #   response.should redirect_to(phone_numbers_url)
     # end
     it "redirects to the phone_number owner" do
-      bob = Person.create(first_name: 'Bob', last_name: 'Jones')
-      valid_attributes = {number: '555-5678', contact_id: bob.id, contact_type: 'Person'}
       phone_number = PhoneNumber.create! valid_attributes
       put :destroy, {:id => phone_number.to_param}, valid_session
       expect(response).to redirect_to(bob)
