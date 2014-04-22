@@ -18,7 +18,7 @@ describe "the person view", type: :feature do
       end
     end
     it 'has a link to add a new phone number' do
-      expect(page).to have_link('Add phone number', href: new_phone_number_path(person_id: person.id))
+      expect(page).to have_link('Add phone number', href: new_phone_number_path(contact_id: person.id, contact_type: 'Person'))
     end
     it 'adds a new phone number' do
       # pending
@@ -36,7 +36,7 @@ describe "the person view", type: :feature do
     end
 
     it 'edits a phone number' do
-      phone = person.phone_numbers.last
+      phone = person.phone_numbers.first
       old_number = phone.number
       # old_number = first(:css. )
 
