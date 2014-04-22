@@ -30,21 +30,6 @@ describe PhoneNumbersController do
   # PhoneNumbersController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  describe "GET index" do
-    it "assigns all phone_numbers as @phone_numbers" do
-      phone_number = PhoneNumber.create! valid_attributes
-      get :index, {}, valid_session
-      assigns(:phone_numbers).should eq([phone_number])
-    end
-  end
-
-  describe "GET show" do
-    it "assigns the requested phone_number as @phone_number" do
-      phone_number = PhoneNumber.create! valid_attributes
-      get :show, {:id => phone_number.to_param}, valid_session
-      assigns(:phone_number).should eq(phone_number)
-    end
-  end
 
   describe "GET new" do
     it "assigns a new phone_number as @phone_number" do
@@ -130,11 +115,6 @@ describe PhoneNumbersController do
         assigns(:phone_number).should eq(phone_number)
       end
 
-      # it "redirects to the phone_number" do
-      #   phone_number = PhoneNumber.create! valid_attributes
-      #   put :update, {:id => phone_number.to_param, :phone_number => valid_attributes}, valid_session
-      #   response.should redirect_to(phone_number)
-      # end
       it "redirects to the phone_number owner" do
         bob = Person.create(first_name: 'Bob', last_name: 'Jones')
         valid_attributes = {number: '555-5678', contact_id: bob.id, contact_type: 'Person'}
@@ -175,11 +155,6 @@ describe PhoneNumbersController do
       }.to change(PhoneNumber, :count).by(-1)
     end
 
-    # it "redirects to the phone_numbers owner" do
-    #   phone_number = PhoneNumber.create! valid_attributes
-    #   delete :destroy, {:id => phone_number.to_param}, valid_session
-    #   response.should redirect_to(phone_numbers_url)
-    # end
     it "redirects to the phone_number owner" do
       phone_number = PhoneNumber.create! valid_attributes
       put :destroy, {:id => phone_number.to_param}, valid_session
