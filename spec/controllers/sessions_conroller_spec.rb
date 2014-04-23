@@ -63,4 +63,31 @@ describe SessionsController do
       expect(response).to redirect_to(root_path)
     end
   end
+
+  describe "#destroy" do
+
+    before(:each) do
+      Rails.application.routes.draw do
+        resource :sessions, :only => [:create, :destroy]
+        root to: 'site#index'
+      end
+    end
+
+    after(:each) do
+      Rails.application.reload_routes!
+    end
+
+    it "logs out a user" do
+      user = User.create(provider: 'twitter', uid: 'prq987', name: 'Charlie Allen')
+      session[:user_id] = user.id
+      delete :destroy
+      expect(controller.current_user).to be_nil
+    end
+    it 'redirects to the root path' do
+      user = User.create(provider: 'twitter', uid: 'prq987', name: 'Charlie Allen')
+      session[:user_id] = user.id
+      delete :destroy
+      expect(response).to redirect_to(root_path)
+    end
+  end
 end
