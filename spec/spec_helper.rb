@@ -39,4 +39,7 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
+  # For Factorygirl gem, so that there is no need to preface factory_girl methods with FactoryGirl
+  config.include FactoryGirl::Syntax::Methods
 end

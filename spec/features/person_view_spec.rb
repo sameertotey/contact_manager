@@ -3,12 +3,14 @@ require 'capybara/rails'
 require 'capybara/rspec'
 
 feature "the person view" do
-  let(:person) { Person.create(first_name: "John", last_name:'Doe')}
+  let(:person) { FactoryGirl::create(:person)}
+  let(:user) { person.user }
 
   describe "phone numbers for the person" do
     before(:each) do
-      person.phone_numbers.create(number: "555-6789")
+      person.phone_numbers.create(number: "555-1234")
       person.phone_numbers.create(number: "555-5678")
+      login_as(user)
       visit person_path(person)
     end
 
@@ -57,8 +59,9 @@ feature "the person view" do
   
   describe "email addresses for the person" do
     before(:each) do
-      person.email_addresses.create(address: "someone1@example.com")
-      person.email_addresses.create(address: "someone2@example.com")
+      person.email_addresses.create(address: 'one1@example.com')
+      person.email_addresses.create(address: 'two1@example.com')
+      login_as(user)
       visit person_path(person)
     end
 

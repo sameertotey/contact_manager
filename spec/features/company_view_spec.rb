@@ -3,12 +3,14 @@ require 'capybara/rails'
 require 'capybara/rspec'
 
 feature "the company view" do
-  let(:company) { Company.create(name: "Corp ABC")}
+  let(:company) { FactoryGirl::create(:company)}
+  let(:user) { company.user }
 
   describe "phone numbers for the company" do
     before(:each) do
       company.phone_numbers.create(number: "555-6789")
       company.phone_numbers.create(number: "555-5678")
+      login_as(user)
       visit company_path(company)
     end
 
@@ -59,6 +61,7 @@ feature "the company view" do
     before(:each) do
       company.email_addresses.create(address: "someone1@example.com")
       company.email_addresses.create(address: "someone2@example.com")
+      login_as(user)
       visit company_path(company)
     end
 

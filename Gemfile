@@ -47,6 +47,8 @@ group :development, :test do
   gem "shoulda-matchers"
   gem "capybara"
   gem "launchy"
+  gem "factory_girl_rails"
+  gem 'database_cleaner'
 end
 
 gem 'unicorn'
@@ -59,6 +61,8 @@ ruby '2.1.1'
 gem 'omniauth'
 gem 'figaro'
 gem 'omniauth-twitter'
+
+
 
 
 
