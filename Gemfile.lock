@@ -70,6 +70,8 @@ GEM
     guard-rspec (4.2.8)
       guard (~> 2.1)
       rspec (>= 2.14, < 4.0)
+    haml (4.0.5)
+      tilt
     hike (1.2.3)
     i18n (0.6.9)
     jbuilder (2.0.6)
@@ -203,6 +205,7 @@ DEPENDENCIES
   debugger
   guard
   guard-rspec
+  haml
   jbuilder (~> 2.0)
   jquery-rails
   launchy

@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'capybara/rails'
 require 'capybara/rspec'
 
-describe "the person view", type: :feature do
+feature "the person view" do
   let(:person) { Person.create(first_name: "John", last_name:'Doe')}
 
   describe "phone numbers for the person" do
@@ -70,6 +70,7 @@ describe "the person view", type: :feature do
     it "has an add email address link" do
       expect(page).to have_link('Add email address', href: new_email_address_path(contact_id: person.id, contact_type: 'Person'))
     end
+    
     it 'adds a new email address' do
       # pending
       page.click_link('Add email address')

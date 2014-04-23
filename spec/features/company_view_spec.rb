@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'capybara/rails'
 require 'capybara/rspec'
 
-describe "the company view", type: :feature do
+feature "the company view" do
   let(:company) { Company.create(name: "Corp ABC")}
 
   describe "phone numbers for the company" do

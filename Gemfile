@@ -7,6 +7,7 @@ gem 'rails', '4.1.0'
 # gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
+gem 'haml'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -43,7 +44,6 @@ group :development, :test do
   gem "guard"
   gem "guard-rspec"
   gem "rspec-rails"
-  # gem "sqlite3"
   gem "shoulda-matchers"
   gem "capybara"
   gem "launchy"
@@ -51,11 +51,8 @@ end
 
 gem 'unicorn'
 
-# group :production do
-  gem 'pg'
-# end
+gem 'pg'
 
-# gem "unicorn-rails"
 gem "rails_12factor", group: :production
 ruby '2.1.1'
 
